@@ -1,7 +1,0 @@
-# Compiled output
-*.bin
-*.exe
-*.o
-
-# CPH editor directory
-.cph/
