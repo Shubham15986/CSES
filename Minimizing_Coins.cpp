@@ -64,16 +64,16 @@ int gcd(int a, int b) {
 
 void boom(){
    int n, k;
-   cin >> n >> k;
+   cin>>n>>k;
 
    vi dp(k + 1, 1e9);   
    vi v(n);
 
-   rep(i, 0, n) cin >> v[i];
+   rep(i, 0, n) cin>>v[i];
    dp[0] = 0;
 
    for (auto it : v) {
-      for (int i = it; i <= k; i++) {
+      for (int i = it; i<=k; i++) {
         dp[i] = min(dp[i], dp[i - it] + 1);  
     }
 }
