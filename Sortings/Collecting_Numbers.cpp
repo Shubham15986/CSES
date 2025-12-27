@@ -52,18 +52,20 @@ int gcd(int a, int b) {
 void boom(){
     int n;cin>>n;
     vii v(n);
+    map<int,int> mpp;
+    map<int,int> pos;
     rep(i,0,n){
         int a;cin>>a;
-        v.pb({a,i+1});
-    }
-    sort(all(v));
+        mpp[a] =i+1;
+        pos[i+1] = a;
+     }
+   
     int cnt =1;
-    int prev = v[0].second;
-    for(auto it: v){
-        if(it.second <prev)cnt++;
-        prev = it.second;
+    int prev = mpp[1];
+    for(int i=2;i<n+1;i++){
+        if(mpp[i]<prev)cnt++;
+        prev = mpp[i];
     }
-
     cout<<cnt<<endl;
     
 
