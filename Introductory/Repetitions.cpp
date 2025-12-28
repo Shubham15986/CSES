@@ -1,7 +1,8 @@
 #include<iostream>
 #include<algorithm>
   #include <iomanip>
-#include <bit>
+  #include<climits>
+
 
 
 #include<unordered_map>
@@ -43,37 +44,47 @@ int gcd(int a, int b) {
     }
     return a;
 }
-int pow(int a, int b) {
-    int result = 1;
-    while (b > 0) {
-        if (b & 1) {
-            result *= a; 
-        }
-        a *= a;          
-        b >>= 1;      
-    }
-    return result;
-}
 
+// int solve(int n, int k, vector<int>& v) {
+//     if (k == 0) return 0;
+//     if (n == 0) return 1e9;
 
+//     if (dp[n][k] != -1) return dp[n][k];
 
+//     int not_pick = solve(n-1, k, v);
 
+//     int pick = 1e9;
+//     if (k - v[n-1] >= 0) {
+//         pick = 1 + solve(n, k - v[n-1], v);
+//     }
+
+//     return dp[n][k] = min(pick, not_pick);
+// }
 
 
 void boom(){
-    int n;cin>>n;
-    vi v(n);
-    rep(i,0,n) cin>>v[i];
-
+   string s;cin>>s;
+   int cnt=1;
+   char prev=s[0];
+   int maxi = 1;
+   for(int i=1;i<s.size();i++){
+        if(s[i]==prev){
+            cnt++;
+        }else{
+            maxi=max(maxi,cnt);
+            cnt=1;
+            prev=s[i];
+        }
+   }
+   maxi=max(cnt,maxi);
+   cout<<maxi<<endl;
     
-	
- 
-     
 }
+
 int32_t main() {
     
-   int t;cin>>t;
-   
+   int t; //cin>>t;
+   t=1;
 
    while(t--){
     boom();
